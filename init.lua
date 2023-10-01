@@ -171,6 +171,8 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  { 'm4xshen/autoclose.nvim', opts={} },
+
 }, {})
 
 -- [[ Setting options ]]
