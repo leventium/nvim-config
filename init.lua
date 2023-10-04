@@ -173,6 +173,8 @@ require('lazy').setup({
 
   { 'windwp/nvim-autopairs', opts = {} },
 
+  { 'nvim-tree/nvim-tree.lua', opts = {} },
+
 }, {})
 
 -- [[ Setting options ]]
@@ -259,7 +261,7 @@ pcall(require('telescope').load_extension, 'fzf')
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = '[b] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -508,6 +510,8 @@ cmp.event:on(
   'confirm_done',
   cmp_autopairs.on_confirm_done()
 )
+
+vim.api.nvim_set_keymap('n', '<leader><space>', ':NvimTreeToggle<CR>', { silent = true, noremap = true, desc = '[ ] Toggle Tree' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
