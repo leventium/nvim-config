@@ -171,7 +171,7 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  { 'm4xshen/autoclose.nvim', opts={} },
+  { 'windwp/nvim-autopairs', opts = {} },
 
 }, {})
 
@@ -458,6 +458,7 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local cmp_autopairs = require'nvim-autopairs.completion.cmp'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
@@ -502,6 +503,11 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
