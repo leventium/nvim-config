@@ -421,7 +421,7 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-  svls = {},
+  -- svls = {},
 
   lua_ls = {
     Lua = {
