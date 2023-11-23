@@ -191,7 +191,7 @@ vim.wo.number = true
 vim.o.mouse = 'a'
 
 -- Length marker
-vim.o.colorcolumn = 80
+vim.o.colorcolumn = '80'
 
 -- Spaces instead tabs
 -- vim.o.expandtab = true
